@@ -1,0 +1,34 @@
+#!/bin/bash
+
+#
+# This file is part of the advoid project.
+#
+# Copyright (c) 2015 by Johannes Findeisen
+#
+# Distributed under the GNU GPL v2.
+#
+
+if [ -z "$1" ];
+then 
+    echo "var is unset";
+    exit 1 
+else 
+    echo "var is set to '$1'"; 
+fi
+
+if [ -f $1 ]
+then
+    echo "Using '$1' as configuration file"
+    source $1
+else
+    echo "Configuration file not found!"
+    exit 1
+fi
+
+echo "file found"
+
+for HOST in ${HOSTS}
+do
+    echo ${HOST}
+done
+
